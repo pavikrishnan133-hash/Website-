@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SheRide — Female Bike Taxi</title>
+  <style>
+    :root {
+      --pink: #f8c8dc;
+      --peach: #ffd9c2;
+      --mint: #d9f2e6;
+      --lavender: #e6d9f2;
+      --text: #333;
+      --accent: #7a4ea3;
+      --white: #fff;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      color: var(--text);
+      background: linear-gradient(180deg, var(--mint), var(--lavender));
+    }
+
+    /* Header / Nav */
+    header {
+      background: var(--white);
+      border-bottom: 1px solid #eee;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.5px;
+    }
+    .brand .logo {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, var(--pink), var(--peach));
+      border: 2px solid var(--accent);
+    }
+    .nav a {
+      text-decoration: none;
+      color: var(--text);
+      margin-left: 16px;
+      font-weight: 600;
+    }
+    .nav a:hover { color: var(--accent); }
+
+    /* Hero */
+    .hero {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 20px;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 30px;
+      align-items: center;
+    }
+    .hero h1 {
+      font-size: 2.2rem;
+      margin: 0 0 10px;
+      color: var(--accent);
+    }
+    .hero p { font-size: 1.05rem; line-height: 1.6; }
+    .hero .cta {
+      margin-top: 18px;
+      display: flex; gap: 12px; flex-wrap: wrap;
+    }
+    .btn {
+      padding: 12px 18px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      font-weight: 700;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: var(--white);
+    }
+    .btn-light {
+      background: var(--white);
+      color: var(--accent);
+      border: 2px solid var(--accent);
+    }
+    .hero-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 10px 24px rgba(122, 78, 163, 0.15);
+    }
+    .hero-card h3 { margin-top: 0; color: var(--accent); }
+    .hero-card ul { margin: 12px 0 0; padding-left: 18px; }
+
+    /* Sections */
+    section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    .section-title {
+      text-align: center;
+      margin-bottom: 20px;
+      color: var(--accent);
+    }
+
+    /* Features */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .card {
+      background: var(--white);
+      border-radius: 14px;
+      padding: 18px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    }
+    .card h4 { margin: 0 0 8px; color: var(--accent); }
+
+    /* Safety */
+    .safety {
+      background: linear-gradient(180deg, var(--peach), var(--pink));
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+    .safety-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-top: 12px;
+    }
+    .badge {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 12px;
+      font-weight: 600;
+      color: var(--accent);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+
+    /* Booking form */
+    .booking {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 20px;
+    }
+    form {
+      background: var(--white);
+      border-radius: 14px;
+      padding: 18px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    }
+    label { display: block; font-weight: 600; margin: 10px 0 6px; }
+    input, select, textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1.5px solid #ddd;
+      outline: none;
+      font-size: 0.95rem;
+    }
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(122,78,163,0.15);
+    }
+    .note {
+      background: var(--mint);
+      border: 2px dashed var(--accent);
+      border-radius: 12px;
+      padding: 16px;
+    }
+
+    /* Testimonials */
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .quote {
+      background: var(--white);
+      border-left: 6px solid var(--accent);
+      border-radius: 12px;
+      padding: 16px;
+      font-style: italic;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    }
+
+    /* Contact / Footer */
+    .contact {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .contact .card p { margin: 6px 0; }
+    footer {
+      text-align: center;
+      padding: 24px 20px 40px;
+      color: #555;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero, .features, .booking, .testimonials, .contact { grid-template-columns: 1fr; }
+      .safety-list { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="nav">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <span>SheRide</span>
+      </div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#safety">Safety</a>
+        <a href="#book">Book</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="about">
+    <div>
+      <h1>Fast, safe, and friendly rides for women</h1>
+      <p>SheRide is a female bike taxi service designed for comfort, trust, and convenience. Book a ride with trained women riders, transparent pricing, and real-time updates—perfect for short city trips and everyday errands.</p>
+      <div class="cta">
+        <button class="btn btn-primary" onclick="document.getElementById('book').scrollIntoView({behavior:'smooth'})">Book a ride</button>
+        <button class="btn btn-light" onclick="document.getElementById('safety').scrollIntoView({behavior:'smooth'})">See safety</button>
+      </div>
+    </div>
+    <div class="hero-card">
+      <h3>Why SheRide?</h3>
+      <ul>
+        <li>Women riders—trained, verified, and courteous</li>
+        <li>Live tracking and shareable trip details</li>
+        <li>Affordable fares with no surprises</li>
+        <li>Comfort-first approach with safety gear</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section>
+    <h2 class="section-title">What you’ll love</h2>
+    <div class="features">
+      <div class="card">
+        <h4>Quick pickups</h4>
+        <p>Find nearby riders and get moving in minutes—ideal for markets, colleges, and office commutes.</p>
+      </div>
+      <div class="card">
+        <h4>Transparent fares</h4>
+        <p>Know your fare before you ride. No hidden fees, just simple, fair pricing.</p>
+      </div>
+      <div class="card">
+        <h4>Friendly support</h4>
+        <p>Chat or call for help anytime. We care about your comfort and your time.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Safety -->
+  <section id="safety">
+    <h2 class="section-title">Safety & trust</h2>
+    <div class="safety">
+      <p>Safety isn’t a feature—it’s the foundation. Every rider is verified, trained, and equipped. You can share your trip with family and get help quickly if needed.</p>
+      <div class="safety-list">
+        <div class="badge">Verified rider IDs</div>
+        <div class="badge">Helmets provided</div>
+        <div class="badge">Live trip sharing</div>
+        <div class="badge">Emergency assist</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking -->
+  <section id="book">
+    <h2 class="section-title">Book your ride</h2>
+    <div class="booking">
+      <form>
+        <label for="name">Your name</label>
+        <input id="name" type="text" placeholder="Enter your name" required />
+
+        <label for="phone">Phone number</label>
+        <input id="phone" type="tel" placeholder="e.g., 98765 43210" required />
+
+        <label for="pickup">Pickup location</label>
+        <input id="pickup" type="text" placeholder="e.g., RS Puram, Coimbatore" required />
+
+        <label for="drop">Drop location</label>
+        <input id="drop" type="text" placeholder="e.g., Gandhipuram Bus Stand" required />
+
+        <label for="time">Pickup time</label>
+        <input id="time" type="datetime-local" required />
+
+        <label for="notes">Notes (optional)</label>
+        <textarea id="notes" rows="3" placeholder="Landmark, preferred route, etc."></textarea>
+
+        <div style="margin-top:14px;">
+          <button class="btn btn-primary" type="submit">Request ride</button>
+          <button class="btn btn-light" type="reset">Clear</button>
+        </div>
+      </form>
+
+      <div class="note">
+        <strong>Heads up:</strong>
+        <p>After you submit, our team will confirm your booking via call or WhatsApp. You’ll receive rider details and a live tracking link before pickup.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section>
+    <h2 class="section-title">Riders speak</h2>
+    <div class="testimonials">
+      <div class="quote">“Felt safe and comfortable the whole way. The rider was kind and professional.” — Aishwarya</div>
+      <div class="quote">“Perfect for quick trips to college. Transparent fare and on-time pickup.” — Meera</div>
+      <div class="quote">“Loved the trip sharing feature—my sister could see my route live.” — Priya</div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2 class="section-title">Contact & support</h2>
+    <div class="contact">
+      <div class="card">
+        <h4>Call</h4>
+        <p>+91 90000 00000</p>
+        <p>Mon–Sat, 7 AM–9 PM</p>
+      </div>
+      <div class="card">
+        <h4>WhatsApp</h4>
+        <p>+91 90000 00000</p>
+        <p>Quick replies for bookings</p>
+      </div>
+      <div class="card">
+        <h4>Email</h4>
+        <p>hello@sheride.in</p>
+        <p>Support within 24 hours</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 SheRide • Female Bike Taxi • Coimbatore
+  </footer>
+
+</body>
+</html>
