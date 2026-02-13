@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickBite | Food Delivery</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* General Styles */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { line-height: 1.6; color: #333; }
+        
+        /* Header & Navigation */
+        header {
+            background: #fff;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo { font-size: 1.5rem; font-weight: bold; color: #ff4757; }
+        nav ul { display: flex; list-style: none; }
+        nav ul li { margin-left: 20px; }
+        nav ul li a { text-decoration: none; color: #333; font-weight: 500; transition: 0.3s; }
+        nav ul li a:hover { color: #ff4757; }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+        .hero h1 { font-size: 3rem; margin-bottom: 10px; }
+
+        /* Sections */
+        section { padding: 50px 10% ; text-align: center; }
+        .btn { background: #ff4757; color: white; padding: 10px 25px; border: none; border-radius: 5px; cursor: pointer; }
+
+        /* Footer */
+        footer {
+            background: #2f3542;
+            color: white;
+            padding: 40px 10%;
+            text-align: center;
+        }
+        .social-links { margin-bottom: 20px; }
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 15px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .social-links a:hover { color: #ff4757; }
+        .footer-bottom { border-top: 1px solid #57606f; padding-top: 20px; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">🍕 QuickBite</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#order">Order</a></li>
+                <li><a href="#rating">Rating</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div>
+            <h1>Hungry? We've Got You.</h1>
+            <p>Delicious food delivered to your doorstep in minutes.</p><br>
+            <button class="btn">Order Now</button>
+        </div>
+    </section>
+
+    <section id="order">
+        <h2>Order Your Favorites</h2>
+        <p>Browse our menu and pick your favorite meal.</p>
+    </section>
+
+    <section id="rating" style="background: #f1f2f6;">
+        <h2>Customer Ratings</h2>
+        <p>⭐⭐⭐⭐⭐ (4.8/5 based on 2000+ reviews)</p>
+    </section>
+
+    <section id="about">
+        <h2>About Us</h2>
+        <p>We are a team of food enthusiasts dedicated to bringing the best local cuisines to your home.</p>
+    </section>
+
+    <footer>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+            <a href="#"><i class="fab fa-telegram"></i></a>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2023 QuickBite Delivery. All rights reserved.
+        </div>
+    </footer>
+
+</body>
+</html>
